@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  # FRONTEND — React + Vite + Nginx
+  frontend:
+    build:
+      context: ../F-Savely-Rest
+      dockerfile: Dockerfile
+    container_name: safelyrest-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - safelyrest-network
+
+  # BACKEND — Node.js + Express
+  backend:
+    build:
+      context: ../B-Safely-Rest
+      dockerfile: Dockerfile
+    container_name: safelyrest-backend
+    ports:
+      - "4000:4000"
+    env_file:
+      - ../B-Safely-Rest/.env
+    networks:
+      - safelyrest-network
+
+networks:
+  safelyrest-network:
+    driver: bridge
