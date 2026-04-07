@@ -1,0 +1,6 @@
+[submodule "B-Safely-Rest"]
+	path = B-Safely-Rest
+	url = https://github.com/Piyussh-22/SafelyRest-Backend.git
+[submodule "F-Savely-Rest"]
+	path = F-Savely-Rest
+	url = https://github.com/Piyussh-22/SafelyRest-Frontend.git
