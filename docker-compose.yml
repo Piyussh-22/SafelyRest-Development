@@ -1,10 +1,8 @@
-version: "3.9"
-
 services:
   # FRONTEND — React + Vite + Nginx
   frontend:
     build:
-      context: ../F-Savely-Rest
+      context: ./F-Savely-Rest
       dockerfile: Dockerfile
     container_name: safelyrest-frontend
     ports:
@@ -17,13 +15,13 @@ services:
   # BACKEND — Node.js + Express
   backend:
     build:
-      context: ../B-Safely-Rest
+      context: ./B-Safely-Rest
       dockerfile: Dockerfile
     container_name: safelyrest-backend
     ports:
       - "4000:4000"
     env_file:
-      - ../B-Safely-Rest/.env
+      - ./B-Safely-Rest/.env
     networks:
       - safelyrest-network
 
